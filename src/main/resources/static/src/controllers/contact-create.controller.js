@@ -3,11 +3,13 @@ App.controller('ContactCreateController', [
 
         $scope.contact = {};
 
-        $scope.submitForm = function () {
-            contactsService.createContact($scope.contact)
-                .then(function () {
-                    $location.path('/');
-                });
+        $scope.submitForm = function (isValid) {
+            if (isValid) {
+                contactsService.createContact($scope.contact)
+                    .then(function () {
+                        $location.path('/');
+                    });
+            }
         }
     }
 ]);

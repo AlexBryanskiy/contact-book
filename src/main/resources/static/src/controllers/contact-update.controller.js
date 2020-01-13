@@ -12,11 +12,13 @@ App.controller('ContactUpdateController', [
             })
         };
 
-        $scope.submitForm = function () {
-            contactsService.updateContact($scope.contact)
-                .then(function () {
-                    $location.path('/');
-                });
+        $scope.submitForm = function (isValid) {
+            if (isValid) {
+                contactsService.updateContact($scope.contact)
+                    .then(function () {
+                        $location.path('/');
+                    });
+            }
         }
     }
 ]);

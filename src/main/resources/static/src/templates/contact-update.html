@@ -1,4 +1,6 @@
 <div ng-init="init()">
-    <contact-form ng-model="contact"></contact-form>
-    <button type="submit" class="btn btn-primary" ng-click="submitForm()">Submit</button>
+    <form name="contactForm" ng-submit="submitForm(contactForm.$valid)">
+        <contact-form ng-model="contact"></contact-form>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
 </div>
