@@ -9,6 +9,19 @@
 <body>
 
 <div class="container">
+    <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="errorModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <span class="ml-3">Some error occurred during saving the data!</span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                 </div>
+            </div>
+        </div>
+    </div>
+
     <ng-view></ng-view>
 </div>
 
@@ -27,6 +40,7 @@
 <script type="text/javascript" src="src/controllers/contact-create.controller.js"></script>
 <script type="text/javascript" src="src/controllers/contact-info.controller.js"></script>
 <script type="text/javascript" src="src/controllers/contact-update.controller.js"></script>
+<script type="text/javascript" src="src/services/utils.factory.js"></script>
 <script type="text/javascript" src="src/services/contacts.service.js"></script>
 <script type="text/javascript" src="src/directives/contact-form.directive.js"></script>
 </body>

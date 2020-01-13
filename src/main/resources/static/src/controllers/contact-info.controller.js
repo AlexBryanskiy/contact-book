@@ -1,5 +1,5 @@
 App.controller('ContactInfoController', [
-    '$scope', 'contactsService', '$route', function ($scope, contactsService, $route) {
+    '$scope', 'contactsService', '$route', 'utils', function ($scope, contactsService, $route, utils) {
 
         $scope.contact = {};
 
@@ -8,7 +8,7 @@ App.controller('ContactInfoController', [
              .then(function (response) {
                 $scope.contact = response.data;
             }).catch(function (err) {
-                console.error(err);
+                utils.handleError();
             })
         }
     }

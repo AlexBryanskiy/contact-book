@@ -1,5 +1,5 @@
 App.controller('ContactCreateController', [
-    '$scope', 'contactsService', '$location', function ($scope, contactsService, $location) {
+    '$scope', 'contactsService', '$location', 'utils', function ($scope, contactsService, $location, utils) {
 
         $scope.contact = {};
 
@@ -8,7 +8,10 @@ App.controller('ContactCreateController', [
                 contactsService.createContact($scope.contact)
                     .then(function () {
                         $location.path('/');
-                    });
+                    })
+                    .catch(function () {
+                        utils.handleError();
+                    })
             }
         }
     }

@@ -1,5 +1,6 @@
 App.controller('ContactsListController', [
-    '$scope', '$location', 'contactsService', function ($scope, $location, contactsService) {
+    '$scope', '$location', 'contactsService', 'utils',
+        function ($scope, $location, contactsService, utils) {
 
         $scope.contactList = [];
 
@@ -23,7 +24,7 @@ App.controller('ContactsListController', [
 
                     $scope.refresh();
                 }).catch(function (err) {
-                console.error(err);
+                utils.handleError();
             })
         };
 
@@ -31,7 +32,7 @@ App.controller('ContactsListController', [
             contactsService.getContactsList().then(function (response) {
                 $scope.contactList = response.data;
             }).catch(function (err) {
-                console.error(err);
+                utils.handleError();
             })
         }
     }

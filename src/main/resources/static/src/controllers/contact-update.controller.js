@@ -1,5 +1,6 @@
 App.controller('ContactUpdateController', [
-    '$scope', 'contactsService', '$location', '$route', function ($scope, contactsService, $location, $route) {
+    '$scope', 'contactsService', '$location', '$route', 'utils',
+     function ($scope, contactsService, $location, $route, utils) {
 
         $scope.contact = {};
 
@@ -7,8 +8,8 @@ App.controller('ContactUpdateController', [
             contactsService.getContactInfo($route.current.params.id)
                 .then(function (response) {
                     $scope.contact = response.data;
-                }).catch(function (err) {
-                console.error(err);
+                }).catch(function () {
+                    utils.handleError();
             })
         };
 
