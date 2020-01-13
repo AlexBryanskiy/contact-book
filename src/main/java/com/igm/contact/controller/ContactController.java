@@ -4,8 +4,8 @@ import com.igm.contact.model.Contact;
 import com.igm.contact.service.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import javax.validation.Valid;
 import java.util.List;
-
 
 @RequestMapping("api/contact")
 @RestController
@@ -19,7 +19,7 @@ public class ContactController {
     }
 
     @PostMapping
-    public void addContact(@RequestBody Contact contact) {
+    public void addContact(@Valid @RequestBody Contact contact) {
         this.contactService.createContact(contact);
     }
 
@@ -34,7 +34,7 @@ public class ContactController {
     }
 
     @PutMapping(path = "/{id}")
-    public void updateContact(@PathVariable("id") String id, @RequestBody Contact contact) {
+    public void updateContact(@PathVariable("id") String id, @Valid @RequestBody Contact contact) {
         this.contactService.updateContact(id, contact);
     }
 

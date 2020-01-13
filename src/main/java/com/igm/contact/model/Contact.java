@@ -1,15 +1,28 @@
 package com.igm.contact.model;
 
+import javax.validation.constraints.NotBlank;
 import java.util.UUID;
 
 public class Contact {
 
     private String id;
+
+    @NotBlank(message = "Field is required")
     private String firstName;
+
+    @NotBlank(message = "Field is required")
     private String lastName;
+
+    @NotBlank(message = "Field is required")
     private String fullName;
+
+    @NotBlank(message = "Field is required")
     private String phoneNumber;
+
+    @NotBlank(message = "Field is required")
     private String cellPhoneNumber;
+
+    @NotBlank(message = "Field is required")
     private String address;
 
     public Contact() {
