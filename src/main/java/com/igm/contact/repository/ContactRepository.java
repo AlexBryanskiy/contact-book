@@ -4,6 +4,7 @@ import com.igm.contact.model.Contact;
 
 import java.util.List;
 
+
 public interface ContactRepository {
 
     Contact getById(String id);

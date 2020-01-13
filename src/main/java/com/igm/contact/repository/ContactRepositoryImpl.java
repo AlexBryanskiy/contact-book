@@ -19,6 +19,8 @@ public class ContactRepositoryImpl implements ContactRepository {
 
     @Override
     public Contact getById(String id) {
+        this.handleElementNotExist(id);
+
         return this.collection.get(id);
     }
 
@@ -34,11 +36,20 @@ public class ContactRepositoryImpl implements ContactRepository {
 
     @Override
     public void update(String id, Contact contact) {
+        this.handleElementNotExist(id);
 
+        this.collection.replace(id, contact);
     }
 
     @Override
     public void delete(String id) {
+        this.handleElementNotExist(id);
 
+        this.collection.remove(id);
+    }
+
+    private void handleElementNotExist(String key) throws RuntimeException {
+        if (!this.collection.containsKey(key))
+            throw new RuntimeException("Element not found");
     }
 }
